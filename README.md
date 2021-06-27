@@ -18,6 +18,7 @@ yarn add fastify-route-group
 
 ```javascript
 const fastify = require('fastify');
+const Router = require('fastify-route-group');
 
 async function bootstrap() {
   const server = fastify();
