@@ -42,6 +42,7 @@ async function bootstrap() {
       });
     });
   });
+  await server.listen(3000);
 }
 
 bootstrap()
