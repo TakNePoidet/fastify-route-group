@@ -1,6 +1,6 @@
 {
 	"name": "fastify-route-group",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "Grouping and inheritance of paths",
 	"main": "./dist/index.js",
 	"types": "./dist/index.d.ts",
