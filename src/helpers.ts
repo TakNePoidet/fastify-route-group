@@ -9,5 +9,6 @@ export function normalizeNamespaces(path: string): string {
 	if (normalPath.length > 1 && /\/$/.exec(normalPath)) {
 		normalPath = normalPath.replace(/\/$/, '');
 	}
+
 	return normalPath;
 }

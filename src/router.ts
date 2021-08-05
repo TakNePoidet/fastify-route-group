@@ -109,7 +109,7 @@ export class Router {
 		handle();
 
 		for (const scope of this.namespaces.pop()) {
-			this.registerFromFastify({ ...scope, url: this.state.namespace + scope.url });
+			this.registerFromFastify({ ...scope, url: normalizeNamespaces(this.state.namespace + scope.url) });
 		}
 		this.state.namespace = this.state.namespace.slice(0, namespace.length * -1);
 	}

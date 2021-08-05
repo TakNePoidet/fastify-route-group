@@ -82,7 +82,12 @@ describe('Class Methods', () => {
 		test('Scope', () => {
 			const mockRegisterFromFastify = jest.spyOn<Router, any>(router, 'registerFromFastify').mockReturnValue(undefined);
 
-			mockNormalizeNamespaces.mockReturnValueOnce('/api').mockReturnValueOnce('/api');
+			mockNormalizeNamespaces
+				.mockReturnValueOnce('/api')
+				.mockReturnValueOnce('/api')
+				.mockReturnValueOnce('/api/post')
+				.mockReturnValueOnce('/api/post');
+
 			router.group({ namespace: 'api' }, () => {
 				router[propertyRouter.namespaces][0].push({
 					url: '/post'
@@ -92,12 +97,13 @@ describe('Class Methods', () => {
 			expect(mockRegisterFromFastify).toHaveBeenNthCalledWith(1, {
 				url: '/api/post'
 			});
+
+			expect(mockNormalizeNamespaces).toHaveBeenCalledTimes(3);
 		});
 
 		test('No path', () => {
 			const handle = jest.fn();
 			const mockRegisterFromFastify = jest.spyOn<Router, any>(router, 'registerFromFastify').mockReturnValue(undefined);
-
 			mockNormalizeNamespaces.mockReturnValue('/');
 			expect(router.group({ namespace: null }, handle)).toBeUndefined();
 			expect(handle).toHaveBeenCalledTimes(1);

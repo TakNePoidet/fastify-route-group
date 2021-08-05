@@ -20,19 +20,25 @@ async function bootstrap() {
 	});
 
 	function api() {
-		router.namespace('methods', () => {
-			router.prefix('posts.', () => {
-				router.get('get', (_, reply) => {
-					reply.send('api get posts');
-				});
-			});
-			router.prefix('photos.', () => {
-				router.get('get', (_, reply) => {
-					reply.send('api get photos');
-				});
-			});
+		router.namespace('customer', () => {
+			router.get('', async () => '/api/customer');
+			router.get('get', async () => '/api/customer/get');
+			router.get('set', async () => '/api/customer/set');
 		});
+		// router.namespace('methods', () => {
+		// 	router.prefix('posts.', () => {
+		// 		router.get('get', (_, reply) => {
+		// 			reply.send('api get posts');
+		// 		});
+		// 	});
+		// 	router.prefix('photos.', () => {
+		// 		router.get('get', (_, reply) => {
+		// 			reply.send('api get photos');
+		// 		});
+		// 	});
+		// });
 	}
+
 	router.namespace('api', () => {
 		api();
 	});
