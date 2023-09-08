@@ -1,16 +1,16 @@
-import { RouteShorthandOptions, RouteHandlerMethod, FastifyInstance, RouteOptions } from 'fastify';
+import { type RouteShorthandOptions, type RouteHandlerMethod, type FastifyInstance, type RouteOptions } from 'fastify';
+import { HttpMethod, type RouterGroupOptions, type Namespaces, type Namespace, type State } from './types';
 import { normalizeNamespaces } from './helpers';
-import { HttpMethod, RouterGroupOptions, Namespaces, Namespace, State } from './types';
 
 export class Router {
-	private state: State = {
+	private readonly state: State = {
 		prefixes: [''],
 		namespace: '/'
 	};
 
-	private namespaces: Namespaces[] = [];
+	private readonly namespaces: Namespaces[] = [];
 
-	constructor(private fastify: FastifyInstance) {}
+	constructor(private readonly fastify: FastifyInstance) {}
 
 	private get currentNamespace(): Namespaces {
 		return this.namespaces[this.namespaces.length - 1];
