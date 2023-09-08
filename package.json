@@ -57,7 +57,7 @@
 		"vite-plugin-dts": "^3.5.3"
 	},
 	"dependencies": {
-		"fastify": "^3.20.1"
+		"fastify": "^4.22.2"
 	},
 	"jest": {
 		"bail": 5,

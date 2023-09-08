@@ -43,12 +43,11 @@ async function bootstrap() {
 		api();
 	});
 	console.log(router);
-	await server.listen(3000, (err, address) => {
-		if (err) {
-			throw err;
-		}
+
+	try {
+		const address = await server.listen({ port: 3000 });
 		console.log(`Открыть адрес ${address}`);
-	});
+	} catch (e) {}
 }
 
 bootstrap().then();
