@@ -12,7 +12,9 @@ export default defineConfig({
 			fileName: (format, entryName) => `${entryName}.${format}.js`
 		},
 		rollupOptions: {
-			preserveModules: true
+			output: {
+				preserveModules: false
+			}
 		},
 		minify: 'terser'
 	}
