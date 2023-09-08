@@ -60,7 +60,7 @@
 		"fastify": "^4.22.2"
 	},
 	"jest": {
-		"bail": 5,
+		"bail": true,
 		"verbose": false
 	},
 	"pre-commit": [
