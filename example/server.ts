@@ -1,5 +1,5 @@
 import fastify, { RouteOptions } from 'fastify';
-import { Router } from '../dist';
+import { Router } from '..';
 
 async function bootstrap() {
 	const server = fastify();
